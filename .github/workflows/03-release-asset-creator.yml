@@ -1,4 +1,4 @@
-name: release-archiver
+name: release-asset-creator
 on:
   release:
     types: [published]

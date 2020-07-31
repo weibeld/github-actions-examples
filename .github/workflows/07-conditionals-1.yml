@@ -1,0 +1,15 @@
+name: conditionals-1
+on: workflow_dispatch
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step-1
+        run: echo "Step 1"
+      - name: step-2
+        run: echo exit 1
+      - name: step-3
+        run: echo "Step 3"
+      - name: step-4
+        run: echo "Step 4"
+

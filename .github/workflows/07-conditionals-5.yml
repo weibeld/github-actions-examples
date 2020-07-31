@@ -1,0 +1,12 @@
+name: conditionals-5
+on: workflow_dispatch
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step-1
+        if: success()
+        run: echo "Step 1"
+      - name: step-2
+        if: success()
+        run: echo "Step 2"

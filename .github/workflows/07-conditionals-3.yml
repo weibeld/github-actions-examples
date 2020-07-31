@@ -17,8 +17,3 @@ jobs:
       - name: step-5
         if: always()
         run: echo "Step 5"
-      - name: step 6
-        run: echo "Step 6"
-      - name: step 7
-        if: success()
-        run: echo "Step 7"

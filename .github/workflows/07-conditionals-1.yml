@@ -7,7 +7,7 @@ jobs:
       - name: step-1
         run: echo "Step 1"
       - name: step-2
-        run: echo exit 1
+        run: exit 1
       - name: step-3
         run: echo "Step 3"
       - name: step-4

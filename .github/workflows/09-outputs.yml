@@ -7,3 +7,5 @@ jobs:
       - name: step-1
         id: step-1
         run: echo "::set-output name=ip-address::$(curl -s ifconfig.me)"
+      - name: step-2
+        run: echo "${{ steps.step-1.outputs.ip-addres }}"

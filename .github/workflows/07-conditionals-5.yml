@@ -13,3 +13,6 @@ jobs:
       - if: startsWith('foo', 'f')
         name: step-3
         run: echo "Step 3"
+      - if: startsWith('foo', 'f') && endsWith('foo', 'o')
+        name: step-4
+        run: echo "Step 4"

@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: handle-all-issues
-        run: echo "This step runs for all issues" && exit 1
+        run: echo "This step runs for all issues"
       - if: always() && startsWith(github.event.issue.title, 'bug')
         name: handle-bug-reports
         run: echo "This step runs only for bug reports"

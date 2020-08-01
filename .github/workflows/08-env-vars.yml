@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step-1
-        run: echo "::set-env name=IP_ADDRESS::$(curl ifconfig.me)"
+        run: echo "::set-env name=IP_ADDRESS::$(curl -s ifconfig.me)"
       - name: step-2
         run: echo "$IP_ADDRESS"

@@ -1,4 +1,4 @@
-name: outputs
+name: outputs-1
 on: workflow_dispatch
 jobs:
   my-job:

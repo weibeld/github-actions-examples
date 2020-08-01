@@ -8,9 +8,9 @@ jobs:
     steps:
       - name: handle-all-issues
         run: echo "This step runs for all issues" && exit 1
-      - if: startsWith(github.event.issue.title, 'bug')
+      - if: always() && startsWith(github.event.issue.title, 'bug')
         name: handle-bug-reports
         run: echo "This step runs only for bug reports"
-      - if: startsWith(github.event.issue.title, 'feature request')
+      - if: failure() && startsWith(github.event.issue.title, 'feature request')
         name: handle-feature-requests
         run: echo "This step runs only for feature requests"

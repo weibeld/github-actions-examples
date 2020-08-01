@@ -8,12 +8,12 @@ jobs:
         run: echo "Step 1"
       - name: step-2
         run: exit 1
-      - name: step-3
-        if: success()
+      - if: success()
+        name: step-3
         run: echo "Step 3"
-      - name: step-4
-        if: failure()
+      - if: failure()
+        name: step-4
         run: echo "Step 4"
-      - name: step-5
-        if: always()
+      - if: always()
+        name: step-5
         run: echo "Step 5"

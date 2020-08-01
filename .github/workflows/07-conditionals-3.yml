@@ -1,4 +1,4 @@
-name: conditionals-3
+name: conditionals-4
 on: workflow_dispatch
 jobs:
   my-job:
@@ -8,12 +8,3 @@ jobs:
         run: echo "Step 1"
       - name: step-2
         run: echo "Step 2"
-      - name: step-3
-        if: success()
-        run: echo "Step 3"
-      - name: step-4
-        if: failure()
-        run: echo "Step 4"
-      - name: step-5
-        if: always()
-        run: echo "Step 5"

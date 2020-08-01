@@ -4,9 +4,12 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: step-1
-        if: success()
+      - if: true
+        name: step-1
         run: echo "Step 1"
-      - name: step-2
-        if: success()
+      - if: 1 == 1
+        name: step-2
         run: echo "Step 2"
+      - if: startsWith('foo', 'f')
+        name: step-3
+        run: echo "Step 3"

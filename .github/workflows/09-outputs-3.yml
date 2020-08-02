@@ -14,4 +14,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: step-2
-        run: echo "${{ toJson(steps)}}"
+        run: echo "${{ steps.xyz.outputs.html_url }}"

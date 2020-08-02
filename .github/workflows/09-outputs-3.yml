@@ -6,6 +6,10 @@ jobs:
     steps:
       - name: step-1
         id: xyz
-        uses: actions/checkout@v2
+        uses: actions/create-release@v1
+        with:
+          tag_name: 0.0.1
+          release_name: 0.0.1
+          body: "This is release 0.0.1"
       - name: step-2
         run: echo "${{ toJson(steps)}}"

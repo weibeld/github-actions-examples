@@ -1,0 +1,20 @@
+name: outputs-2
+on: workflow_dispatch
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step-1
+        id: step-1
+        run: echo "::set-output name=ip-address::$(curl -s ifconfig.me)"
+      - name: step-2
+        run: echo "${{ steps.step-1.outputs.ip-address }}"
+      - name: step-3
+        run: echo "${{ toJson(steps) }}"
+  my-job-2:
+    runs-on: ubuntu-latest
+    needs: my-job
+    steps:
+      - name: print-needs-context
+        run: echo "${{ toJson(needs) }}"
+    

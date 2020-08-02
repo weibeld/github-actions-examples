@@ -12,4 +12,3 @@ jobs:
           echo '{
             "ip-address": "${{ steps.xyz.outputs.html_url }}"
           }'
-        #run: echo '{"ip-address": ""}'

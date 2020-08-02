@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step-1
+        id: xyz
         uses: actions/checkout@v2
       - name: step-2
         run: echo "${{ toJson(steps)}}"

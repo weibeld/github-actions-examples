@@ -8,5 +8,5 @@ jobs:
         id: xyz
         run: echo "::set-output name=ip-address::$(curl -s ifconfig.me)"
       - name: step-2
-        run: echo ''
+        run: echo '{"ip-address": ""}'
         #run: echo '{"ip-address": ""}'

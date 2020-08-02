@@ -10,6 +10,6 @@ jobs:
       - name: step-2
         run: |
           echo '{
-            "ip-address": ""
+            "ip-address": "${{ steps.xyz.outputs.html_url }}"
           }'
         #run: echo '{"ip-address": ""}'

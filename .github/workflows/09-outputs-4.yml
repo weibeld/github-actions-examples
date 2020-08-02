@@ -1,0 +1,15 @@
+name: outputs-4
+on: workflow_dispatch
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step-1
+        id: xyz
+        run: echo "::set-output name=ip-address::$(curl -s ifconfig.me)"
+      - name: step-2
+        run: echo '
+          {
+            "ip-address": "${{ steps.xyz.outputs.ip-address }}"
+          }
+        '

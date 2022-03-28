@@ -1,0 +1,31 @@
+name: upgrade
+on:
+  repository_dispatch:
+    types: [upgrade-formula]
+jobs:
+  main:
+    env:
+      FORMULA: ${{ github.event.client_payload.formula }}
+      URL: ${{ github.event.client_payload.url }}
+      SHA256: ${{ github.event.client_payload.sha256 }}
+      TAP_DIR: /usr/local/Homebrew/Library/Taps/weibeld/homebrew-core
+    runs-on: macos-latest
+    steps:
+      - name: check-input
+        run: '[[ -n "$FORMULA" && -n "$URL" && -n "$SHA256" ]]'
+      - uses: actions/checkout@v2
+      - name: install-tap
+        run: mkdir -p "${TAP_DIR%/*}" && ln -s "$PWD" "$TAP_DIR"
+      - name: determine-old-version
+        run:  echo "::set-env name=VERSION_OLD::$(brew info --json k1s | jq -r first.versions.stable)"
+      - name: upgrade-formula
+        run: brew bump-formula-pr --dry-run --write --url "$URL" --sha256 "$SHA256" "$FORMULA"
+      - name: determine-new-version
+        run:  echo "::set-env name=VERSION_NEW::$(brew info --json k1s | jq -r first.versions.stable)"
+      - name: commit-and-push
+        run: |
+          git add "Formula/$FORMULA.rb"         
+          git config user.name "GitHub Actions"
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "Upgrade $FORMULA from $VERSION_OLD to $VERSION_NEW"
+          git push

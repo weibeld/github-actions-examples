@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step-1
-        id: step-1
+        id: xyz
         run: echo "::set-output name=ip-address::$(curl -s ifconfig.me)"
